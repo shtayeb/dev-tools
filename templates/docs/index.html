@@ -69,8 +69,8 @@
       <div class="mobile-menu-closer"></div>
       <div class="content-menu">
         <div class="content-infos">
-          <div class="info"><b>Version:</b> 1.0.5</div>
-          <div class="info"><b>Last Updated:</b> 15th Sep, 2021</div>
+          <div class="info"><b>Version:</b> 1.0.0</div>
+          <div class="info"><b>Last Updated:</b> 24th Jan, 2023</div>
         </div>
         <ul>
           <li class="scroll-to-link active" data-target="content-get-started">
@@ -93,20 +93,14 @@
           <pre>
     API Endpoint
 
-        https://api.westeros.com/
+    https://api.shahryartayeb.com/generate-image
                 </pre
           >
-          <p>
-            The Westeros API provides programmatic access to read Game of
-            Thrones data. Retrieve a character, provide an oauth connexion,
-            retrieve a familly, filter them, etc.
-          </p>
+          <p></p>
           <p>
             To use this API, you need an <strong>API key</strong>. Please
             contact us at
-            <a href="mailto:jon.snow@nightswatch.wes"
-              >jon.snow@nightswatch.wes</a
-            >
+            <a href="mailto:shtb@shahryartayeb.com">shtb@shahryartayeb.com</a>
             to get your own API key.
           </p>
         </div>
@@ -118,86 +112,21 @@
           <pre><code class="bash">
 # Here is a curl example
 curl \
--X POST http://api.westeros.com/character/get \
--F 'secret_key=your_api_key' \
--F 'house=Stark,Bolton' \
--F 'offset=0' \
--F 'limit=50'
+-X POST https://api.shahryartayeb.com/generate-image\
+-F 'text=Hello World' \
+
                 </code></pre>
           <p>
-            To get characters you need to make a POST call to the following url
-            :<br />
+            To generate your image, you need to make a GET call to the following
+            url :<br />
             <code class="higlighted break-word"
-              >http://api.westeros.com/character/get</code
+              >https://api.shahryartayeb.com/generate-image</code
             >
           </p>
           <br />
-          <pre><code class="json">
-Result example :
-
-{
-  query:{
-    offset: 0,
-    limit: 50,
-    house: [
-      "Stark",
-      "Bolton"
-    ],
-  }
-  result: [
-    {
-      id: 1,
-      first_name: "Jon",
-      last_name: "Snow",
-      alive: true,
-      house: "Stark",
-      gender: "m",
-      age: 14,
-      location: "Winterfell"
-    },
-    {
-      id: 2,
-      first_name: "Eddard",
-      last_name: "Stark",
-      alive: false,
-      house: "Stark",
-      gender: "m",
-      age: 35,
-      location: 'Winterfell'
-    },
-    {
-      id: 3,
-      first_name: "Catelyn",
-      last_name: "Stark",
-      alive: false,
-      house: "Stark",
-      gender: "f",
-      age: 33,
-      location: "Winterfell"
-    },
-    {
-      id: 4,
-      first_name: "Roose",
-      last_name: "Bolton",
-      alive: false,
-      house: "Bolton",
-      gender: "m",
-      age: 40,
-      location: "Dreadfort"
-    },
-    {
-      id: 5,
-      first_name: "Ramsay",
-      last_name: "Snow",
-      alive: false,
-      house: "Bolton",
-      gender: "m",
-      age: 15,
-      location: "Dreadfort"
-    },
-  ]
-}
-                </code></pre>
+          <pre>
+            <!-- <img src="{{ url_for('static', filename='images/generate-image.png') }}" alt="Test-generated-image"> -->
+          </pre>
           <h4>QUERY PARAMETERS</h4>
           <table class="central-overflow-x">
             <thead>
@@ -209,48 +138,33 @@ Result example :
             </thead>
             <tbody>
               <tr>
-                <td>secret_key</td>
+                <td>text</td>
                 <td>String</td>
-                <td>Your API key.</td>
+                <td>Text that you want to add to the image.</td>
               </tr>
               <tr>
-                <td>search</td>
-                <td>String</td>
-                <td>(optional) A search word to find character by name.</td>
+                <td>width</td>
+                <td>Number</td>
+                <td>(optional) Width of the image. default is 1920</td>
               </tr>
               <tr>
-                <td>house</td>
-                <td>String</td>
-                <td>(optional) a string array of houses:</td>
+                <td>height</td>
+                <td>Number</td>
+                <td>(optional) Height of the image. default is 1080</td>
               </tr>
               <tr>
-                <td>alive</td>
-                <td>Boolean</td>
-                <td>(optional) a boolean to filter alived characters</td>
-              </tr>
-              <tr>
-                <td>gender</td>
+                <td>border_color</td>
                 <td>String</td>
                 <td>
-                  (optional) a string to filter character by gender:<br />
-                  m: male<br />
-                  f: female
+                  (optional) the top and bottom border color. default is
+                  'purple'
                 </td>
               </tr>
               <tr>
-                <td>offset</td>
-                <td>Integer</td>
+                <td>border_width</td>
+                <td>Number</td>
                 <td>
-                  (optional - default: 0) A cursor for use in pagination.
-                  Pagination starts offset the specified offset.
-                </td>
-              </tr>
-              <tr>
-                <td>limit</td>
-                <td>Integer</td>
-                <td>
-                  (optional - default: 10) A limit on the number of objects to
-                  be returned, between 1 and 100.
+                  (optional) width of the top and bottom border. default is 40px
                 </td>
               </tr>
             </tbody>
@@ -268,36 +182,19 @@ Result example :
             </thead>
             <tbody>
               <tr>
-                <td>X000</td>
+                <td>400</td>
                 <td>
-                  Some parameters are missing. This error appears when you don't
-                  pass every mandatory parameters.
+                  <code class="higlighted">400 Bad Request:</code> If the width
+                  or height parameter is missing or invalid. Some parameters are
+                  missing. This error appears when you don't pass every
+                  mandatory parameters.
                 </td>
               </tr>
               <tr>
-                <td>X001</td>
+                <td>500</td>
                 <td>
-                  Unknown or unvalid <code class="higlighted">secret_key</code>.
-                  This error appears if you use an unknow API key or if your API
-                  key expired.
-                </td>
-              </tr>
-              <tr>
-                <td>X002</td>
-                <td>
-                  Unvalid <code class="higlighted">secret_key</code> for this
-                  domain. This error appears if you use an API key non specified
-                  for your domain. Developper or Universal API keys doesn't have
-                  domain checker.
-                </td>
-              </tr>
-              <tr>
-                <td>X003</td>
-                <td>
-                  Unknown or unvalid user <code class="higlighted">token</code>.
-                  This error appears if you use an unknow user
-                  <code class="higlighted">token</code> or if the user
-                  <code class="higlighted">token</code> expired.
+                  <code class="higlighted">500 Internal Server Error: </code>If
+                  there is an error generating the image.
                 </td>
               </tr>
             </tbody>

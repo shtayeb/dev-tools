@@ -11,12 +11,12 @@ def home():
 
 
 
-@app.route('/generate_banner')
+@app.route('/generate-image')
 def generate_banner():
    
     width = request.args.get('width',default=1920,type=int) 
     height = request.args.get('height',default=1080,type=int) 
-    title = request.args.get('title')
+    title = request.args.get('text')
     border_color = request.args.get('border_color',default="purple",type=str) 
     border_width = request.args.get('border_width',default=40,type=int) 
 
