@@ -1,8 +1,12 @@
-from flask import Flask, render_template, send_file,request
+from flask import Flask, render_template, send_file,request,send_from_directory
 from PIL import Image, ImageDraw, ImageFont
-import io
-from webcolors import rgb_to_hex
+# import io
+# from io import BytesIO
+# from webcolors import rgb_to_hex
 app = Flask(__name__)
+from datetime import datetime
+import os
+
 
 
 @app.route('/')
@@ -57,12 +61,18 @@ def generate_banner():
 
   
     
-    
     # Save the image
-    img_io = io.BytesIO()
-    image.save(img_io, 'PNG', quality=100)
-    img_io.seek(0)
-    return send_file(img_io, mimetype='image/jpeg')
+    # img_io = io.BytesIO()
+    # img_io = BytesIO()
+    # image.save(img_io, 'JPEG')
+    # img_io.seek(0)
+    # return send_file(img_io, mimetype='image/JPEG')
+
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    image_path = os.path.join('generated', f"{timestamp}.jpeg")
+    image.save(image_path)
+    return send_from_directory(os.path.dirname(image_path), os.path.basename(image_path))
+
 
 
 if __name__ == '__main__':

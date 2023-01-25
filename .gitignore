@@ -1,2 +1,6 @@
 .venv
 __pycache__
+generated/*
+passenger_wsgi.py
+stderr.log
+tmp/
