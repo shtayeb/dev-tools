@@ -4,3 +4,4 @@ generated/*
 passenger_wsgi.py
 stderr.log
 tmp/
+.htaccess
