@@ -1,1 +1,2 @@
-https://github.com/shtayeb/generate-image.git
+## Introduction
+A flash app that puts a text inside an image frame.
