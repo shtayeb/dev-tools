@@ -17,34 +17,6 @@
 
     <!-- Custom styles for this example 
     <link rel="stylesheet" href="custom.css" /> -->
-    <style>
-      .output-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 3.5rem;
-        padding: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .output {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .output p {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .output span {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #242e3e;
-      }
-    </style>
   </head>
 
   <body>
@@ -53,13 +25,15 @@
       <nav class="container-fluid">
         <ul>
           <li>
-            <a href="/" class=""><strong>SHTB</strong></a>
+            <a href="./" class="contrast" onclick="event.preventDefault()"
+              ><strong>SHTB</strong></a
+            >
           </li>
         </ul>
         <ul>
           <li>
             <details role="list" dir="rtl">
-              <summary aria-haspopup="listbox" role="link" class="">
+              <summary aria-haspopup="listbox" role="link" class="contrast">
                 Theme
               </summary>
               <ul role="listbox">
@@ -76,30 +50,33 @@
 
     <!-- Main -->
     <main class="container">
-      <h3>Word Count</h3>
+      <div class="grid">
+        <article>
+          <p>
+            <a href="/img-generate">Image Generate</a><br />
+            <small>Generate a basic image with a text inside it.</small>
+          </p>
+          <a href="#" aria-label="Example" onclick="event.preventDefault()"
+            ><img
+              src="img/daniel-von-appen-tb4heMa-ZRo-unsplash-1500-750.jpg"
+              alt="Architecture"
+          /></a>
+        </article>
 
-      <section class="">
-        <textarea placeholder="Enter your text here..." rows="10"></textarea>
-
-        <section class="output-container">
-          <div class="output">
-            <p class="words">Words</p>
-            <span data-word-count>0</span>
-          </div>
-          <div class="output">
-            <p class="characters">Characters</p>
-            <span data-character-count>0</span>
-          </div>
-          <div class="output">
-            <p class="sentences">Sentences</p>
-            <span data-sentence-count>0</span>
-          </div>
-          <div class="output">
-            <p class="paragraphs">Paragraphs</p>
-            <span data-paragraph-count>0</span>
-          </div>
-        </section>
-      </section>
+        <article>
+          <p>
+            <a href="/word">Word Tool</a><br />
+            <small
+              >Count no of words, Sentences and characters in a text.</small
+            >
+          </p>
+          <a href="/word" aria-label="Example" onclick="event.preventDefault()"
+            ><img
+              src="img/matthew-hamilton-Ru3Ap8TNcsk-unsplash-1500-750.jpg"
+              alt="Architecture"
+          /></a>
+        </article>
+      </div>
     </main>
     <!-- ./ Main -->
 
@@ -118,6 +95,5 @@
 
     <!-- Minimal theme switcher -->
     <script src="{{ url_for('static', filename='js/minimal-theme-switcher.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/wordCount.js') }}"></script>
   </body>
 </html>

@@ -5,9 +5,16 @@ from datetime import datetime
 import os
 
 
+@app.route('/test')
+def test():
+    return render_template('base.html')
 
 @app.route('/')
 def home():
+    return render_template('base.html')
+
+@app.route('/img-generate')
+def img_generate():
     return render_template('docs/index.html')
 
 @app.route('/word')
