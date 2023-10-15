@@ -1,8 +1,5 @@
 from flask import Flask, render_template, send_file,request,send_from_directory
 from PIL import Image, ImageDraw, ImageFont
-# import io
-# from io import BytesIO
-# from webcolors import rgb_to_hex
 app = Flask(__name__)
 from datetime import datetime
 import os
@@ -12,6 +9,10 @@ import os
 @app.route('/')
 def home():
     return render_template('docs/index.html')
+
+@app.route('/word')
+def word_count():
+    return render_template('word_count.html')
 
 
 
