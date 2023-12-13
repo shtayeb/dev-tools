@@ -31,10 +31,6 @@ def format_code():
     else:
         return  bleach.clean('Unsupported language')
 
-@app.route('/test')
-def test():
-    return render_template('test.html')
-
 @app.route('/')
 def home():
     return render_template('home.html')

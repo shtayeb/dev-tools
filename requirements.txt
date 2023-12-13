@@ -24,3 +24,4 @@ webcolors==1.12
 webencodings==0.5.1
 Werkzeug==2.2.2
 zipp==3.11.0
+djlint
