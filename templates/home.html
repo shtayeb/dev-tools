@@ -1,0 +1,593 @@
+{% extends "_base.html" %} {% block content %}
+<div class="flex justify-between items-center mb-4">
+  <h1 class="text-lg font-medium">Transactions</h1>
+  <button
+    class="justify-center font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-2 py-1 bg-gray-800 text-white rounded-lg flex items-center space-x-2 text-sm"
+    type="button"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="w-4 h-4"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" x2="12" y1="15" y2="3"></line></svg
+    ><span>Download</span>
+  </button>
+</div>
+<div class="relative w-full overflow-auto">
+  <table class="w-full caption-bottom text-sm">
+    <thead class="[&amp;_tr]:border-b">
+      <tr
+        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+      >
+        <th
+          class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0"
+        >
+          Date
+        </th>
+        <th
+          class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0"
+        >
+          Description
+        </th>
+        <th
+          class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0"
+        >
+          Category
+        </th>
+        <th
+          class="h-12 px-4 align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0 text-right"
+        >
+          Amount
+        </th>
+        <th
+          class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0"
+        ></th>
+      </tr>
+    </thead>
+    <tbody class="[&amp;_tr:last-child]:border-0">
+      <tr
+        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+      >
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Mar 12
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          WeWork
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <span class="px-2 py-1 bg-red-200 text-red-800 rounded-md"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 inline-block mr-1"
+            >
+              <path
+                d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"
+              ></path>
+              <path d="M7 7h.01"></path></svg
+            >Office</span
+          >
+        </td>
+        <td
+          class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right"
+        >
+          $175.00
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="radix-:r0:"
+            data-state="closed"
+          >
+            <button
+              class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-2 py-1 bg-transparent text-black hover:bg-gray-200 active:bg-gray-300 rounded"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+              </svg>
+            </button>
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+      >
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Mar 13
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">IKEA</td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <span class="px-2 py-1 bg-blue-200 text-blue-800 rounded-md"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 inline-block mr-1"
+            >
+              <path
+                d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"
+              ></path>
+              <path d="M7 7h.01"></path></svg
+            >Home</span
+          >
+        </td>
+        <td
+          class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right"
+        >
+          $450.00
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="radix-:r1:"
+            data-state="closed"
+          >
+            <button
+              class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-2 py-1 bg-transparent text-black hover:bg-gray-200 active:bg-gray-300 rounded"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+              </svg>
+            </button>
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+      >
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Mar 14
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Home Depot
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <span class="px-2 py-1 bg-blue-200 text-blue-800 rounded-md"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 inline-block mr-1"
+            >
+              <path
+                d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"
+              ></path>
+              <path d="M7 7h.01"></path></svg
+            >Home</span
+          >
+        </td>
+        <td
+          class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right"
+        >
+          $200.00
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="radix-:r2:"
+            data-state="closed"
+          >
+            <button
+              class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-2 py-1 bg-transparent text-black hover:bg-gray-200 active:bg-gray-300 rounded"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+              </svg>
+            </button>
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+      >
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Mar 15
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Burger King
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <span class="px-2 py-1 bg-green-200 text-green-800 rounded-md"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 inline-block mr-1"
+            >
+              <path
+                d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"
+              ></path>
+              <path d="M7 7h.01"></path></svg
+            >Food</span
+          >
+        </td>
+        <td
+          class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right"
+        >
+          $15.00
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="radix-:r3:"
+            data-state="closed"
+          >
+            <button
+              class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-2 py-1 bg-transparent text-black hover:bg-gray-200 active:bg-gray-300 rounded"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+              </svg>
+            </button>
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+      >
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Mar 16
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          WeWork
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <span class="px-2 py-1 bg-red-200 text-red-800 rounded-md"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 inline-block mr-1"
+            >
+              <path
+                d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"
+              ></path>
+              <path d="M7 7h.01"></path></svg
+            >Office</span
+          >
+        </td>
+        <td
+          class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right"
+        >
+          $250.00
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="radix-:r4:"
+            data-state="closed"
+          >
+            <button
+              class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-2 py-1 bg-transparent text-black hover:bg-gray-200 active:bg-gray-300 rounded"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+              </svg>
+            </button>
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+      >
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Mar 17
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">IKEA</td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <span class="px-2 py-1 bg-blue-200 text-blue-800 rounded-md"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 inline-block mr-1"
+            >
+              <path
+                d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"
+              ></path>
+              <path d="M7 7h.01"></path></svg
+            >Home</span
+          >
+        </td>
+        <td
+          class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right"
+        >
+          $350.00
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="radix-:r5:"
+            data-state="closed"
+          >
+            <button
+              class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-2 py-1 bg-transparent text-black hover:bg-gray-200 active:bg-gray-300 rounded"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+              </svg>
+            </button>
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+      >
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Mar 18
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Home Depot
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <span class="px-2 py-1 bg-blue-200 text-blue-800 rounded-md"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 inline-block mr-1"
+            >
+              <path
+                d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"
+              ></path>
+              <path d="M7 7h.01"></path></svg
+            >Home</span
+          >
+        </td>
+        <td
+          class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right"
+        >
+          $100.00
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="radix-:r6:"
+            data-state="closed"
+          >
+            <button
+              class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-2 py-1 bg-transparent text-black hover:bg-gray-200 active:bg-gray-300 rounded"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+              </svg>
+            </button>
+          </button>
+        </td>
+      </tr>
+      <tr
+        class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+      >
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Mar 19
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          Burger King
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <span class="px-2 py-1 bg-green-200 text-green-800 rounded-md"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 inline-block mr-1"
+            >
+              <path
+                d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"
+              ></path>
+              <path d="M7 7h.01"></path></svg
+            >Food</span
+          >
+        </td>
+        <td
+          class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right"
+        >
+          $20.00
+        </td>
+        <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="radix-:r7:"
+            data-state="closed"
+          >
+            <button
+              class="inline-flex items-center justify-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-2 py-1 bg-transparent text-black hover:bg-gray-200 active:bg-gray-300 rounded"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="12" cy="5" r="1"></circle>
+                <circle cx="12" cy="19" r="1"></circle>
+              </svg>
+            </button>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

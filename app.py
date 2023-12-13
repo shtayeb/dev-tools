@@ -5,23 +5,26 @@ from datetime import datetime
 import os
 
 
+
+@app.route('/code-formatter')
+def code_formatter():
+    return render_template('code-formatter.html')
+
 @app.route('/test')
 def test():
-    return render_template('base.html')
+    return render_template('test.html')
 
 @app.route('/')
 def home():
-    return render_template('base.html')
+    return render_template('home.html')
 
 @app.route('/img-generate')
 def img_generate():
-    return render_template('docs/index.html')
+    return render_template('img-generate.html')
 
 @app.route('/word')
 def word_count():
     return render_template('word_count.html')
-
-
 
 @app.route('/generate-image')
 def generate_banner():
@@ -80,7 +83,6 @@ def generate_banner():
     image_path = os.path.join('generated', f"{timestamp}.jpeg")
     image.save(image_path)
     return send_from_directory(os.path.dirname(image_path), os.path.basename(image_path))
-
 
 
 if __name__ == '__main__':

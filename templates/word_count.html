@@ -1,123 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Company example • Pico.css</title>
-    <meta
-      name="description"
-      content="A classic company or blog layout with a sidebar. Built with Pico CSS." />
-    <link rel="shortcut icon" href="https://picocss.com/favicon.ico" />
-    <link rel="canonical" href="https://picocss.com/examples/company/" />
+{% extends "_base.html" %} 
 
-    <!-- Pico.css -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+{% block head %}
+<style>
+  .output-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.5rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
 
-    <!-- Custom styles for this example 
-    <link rel="stylesheet" href="custom.css" /> -->
-    <style>
-      .output-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 3.5rem;
-        padding: 1rem;
-        flex-wrap: wrap;
-      }
+  .output {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
 
-      .output {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-      }
+  .output p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 
-      .output p {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
+  .output span {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #242e3e;
+  }
 
-      .output span {
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #242e3e;
-      }
-    </style>
-  </head>
+</style>
+{% endblock head %}
 
-  <body>
-    <!-- Hero -->
-    <div class="hero container" data-theme="dark">
-      <nav class="container-fluid">
-        <ul>
-          <li>
-            <a href="/" class=""><strong>SHTB</strong></a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <details role="list" dir="rtl">
-              <summary aria-haspopup="listbox" role="link" class="">
-                Theme
-              </summary>
-              <ul role="listbox">
-                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
-                <li><a href="#" data-theme-switcher="light">Light</a></li>
-                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-      </nav>
+{% block content %}
+<h3>Word Count</h3>
+<section class="">
+  <textarea 
+    placeholder="Enter your text here..." 
+    rows="30"
+    class="flex min-h-[80px] rounded-md border border-input px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-1/2 mx-auto h-3/4 mt-2"
+    ></textarea>
+
+  <section class="output-container">
+    <div class="output">
+      <p class="words">Words</p>
+      <span data-word-count>0</span>
     </div>
-    <!-- ./ Hero -->
+    <div class="output">
+      <p class="characters">Characters</p>
+      <span data-character-count>0</span>
+    </div>
+    <div class="output">
+      <p class="sentences">Sentences</p>
+      <span data-sentence-count>0</span>
+    </div>
+    <div class="output">
+      <p class="paragraphs">Paragraphs</p>
+      <span data-paragraph-count>0</span>
+    </div>
+  </section>
+</section>
+{% endblock content %}
 
-    <!-- Main -->
-    <main class="container">
-      <h3>Word Count</h3>
-
-      <section class="">
-        <textarea placeholder="Enter your text here..." rows="10"></textarea>
-
-        <section class="output-container">
-          <div class="output">
-            <p class="words">Words</p>
-            <span data-word-count>0</span>
-          </div>
-          <div class="output">
-            <p class="characters">Characters</p>
-            <span data-character-count>0</span>
-          </div>
-          <div class="output">
-            <p class="sentences">Sentences</p>
-            <span data-sentence-count>0</span>
-          </div>
-          <div class="output">
-            <p class="paragraphs">Paragraphs</p>
-            <span data-paragraph-count>0</span>
-          </div>
-        </section>
-      </section>
-    </main>
-    <!-- ./ Main -->
-
-    <!-- ./ Subscribe -->
-
-    <!-- Footer -->
-    <footer class="container">
-      <small
-        >Built with <a href="https://picocss.com">Pico</a> •
-        <a href="https://github.com/picocss/examples/tree/master/v1-company/"
-          >Source code</a
-        ></small
-      >
-    </footer>
-    <!-- ./ Footer -->
-
-    <!-- Minimal theme switcher -->
-    <script src="{{ url_for('static', filename='js/minimal-theme-switcher.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/wordCount.js') }}"></script>
-  </body>
-</html>
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/wordCount.js') }}"></script>
+{% endblock scripts %}

@@ -5,3 +5,5 @@ passenger_wsgi.py
 stderr.log
 tmp/
 .htaccess
+
+node_modules
