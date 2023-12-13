@@ -1,5 +1,9 @@
 {% extends "_base.html" %} 
 
+{% block title %}
+Word Count
+{% endblock title %}
+
 {% block head %}
 <style>
   .output-container {
@@ -33,12 +37,11 @@
 {% endblock head %}
 
 {% block content %}
-<h3>Word Count</h3>
 <section class="">
   <textarea 
     placeholder="Enter your text here..." 
     rows="30"
-    class="flex min-h-[80px] rounded-md border border-input px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-1/2 mx-auto h-3/4 mt-2"
+    class="flex rounded-md border border-input px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full h-3/4 mt-2"
     ></textarea>
 
   <section class="output-container">

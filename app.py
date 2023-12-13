@@ -4,11 +4,32 @@ app = Flask(__name__)
 from datetime import datetime
 import os
 
-
+import jsbeautifier
+import cssbeautifier
+from bs4 import BeautifulSoup
+import autopep8
+import bleach
 
 @app.route('/code-formatter')
 def code_formatter():
     return render_template('code-formatter.html')
+
+@app.route('/format-code', methods=['POST'])
+def format_code():
+    code = request.form['code']
+    lang = request.form['lang']
+
+    if lang == 'html':
+        soup = BeautifulSoup(code, 'html.parser')
+        return bleach.clean(soup.prettify())
+    elif lang == 'css':
+        return bleach.clean(cssbeautifier.beautify(code))
+    elif lang == 'js':
+        return bleach.clean(jsbeautifier.beautify(code))
+    elif lang == 'python':
+        return bleach.clean(autopep8.fix_code(code))
+    else:
+        return  bleach.clean('Unsupported language')
 
 @app.route('/test')
 def test():

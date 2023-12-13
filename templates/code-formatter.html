@@ -1,23 +1,49 @@
-{% extends "_base.html" %} {% block content %}
-<h1>Code Formatter</h1>
+{% extends "_base.html" %} 
+
+{% block title %}
+Code Formatter
+{% endblock title %}
+
+
+{% block content %}
 <div class="w-full flex items-center justify-center">
-  <div class="grid grid-cols-2 gap-4 w-4/5">
-    <div class="w-full border rounded px-4 py-2 bg-white">
+  <div class="grid grid-cols-2 gap-4 w-full">
+    <form class="w-full border rounded px-4 py-2 bg-white">
+      <label
+        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for="language-select"
+        >Select Language</label
+      ><select
+        class="w-full h-[40px] mt-2 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        id="language-select"
+        name="lang"
+      >
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="js">JavaScript</option>
+      </select>
+
       <label
         class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         for="input-text"
         >Input Text</label
       ><textarea
         class="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full h-[300px] mt-2"
-        id="input-text"
+        id="code-to-format"
         placeholder="Enter the text here."
-      ></textarea
-      ><button
+        name="code"
+      ></textarea>
+
+      <button
+        hx-post="/format-code"
+        hx-target="#output-formatted-code"
+        type="submit"
+        id="submit-code-to-format"
         class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
       >
         Submit
       </button>
-    </div>
+    </form>
     <div class="w-full border rounded px-4 py-2 bg-white">
       <label
         class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -25,7 +51,7 @@
         >Output Text</label
       ><textarea
         class="flex min-h-[80px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full h-[300px] mt-2"
-        id="output-text"
+        id="output-formatted-code"
         placeholder="Processed text will be displayed here."
         readonly=""
       ></textarea
@@ -38,5 +64,5 @@
   </div>
 </div>
 {% endblock content %} {% block scripts %}
-<script src="{{ url_for('static', filename='js/wordCount.js') }}"></script>
+<script src="{{ url_for('static', filename='js/code-formatter.js') }}"></script>
 {% endblock scripts %}
